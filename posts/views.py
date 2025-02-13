@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from posts.models import Post
+from django.views.generic import ListView
 # Create your views here.
+class postlist(ListView):
+    template_name = "post_list.html"
+    queryset= Post.objects.all()
+    # html e data er place e object_list hobe 
 def post_list_view(request):
     post_data = Post.objects.all().order_by("id")
     context = {
