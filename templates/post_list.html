@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        .main-content {
+            flex: 3;
+            margin-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #ddd;
+            padding: 10px;
+        }
+        .article {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .article h2 {
+            margin-top: 0;
+        }
+        .article p {
+            line-height: 1.6;
+        }
+        .article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .sidebar .widget {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personal Blog</h1>
+    </header>
+    <nav>
+        <a href="#">For you</a>
+        <a href="#">Following</a>
+        <a href="#">Writing</a>
+        <a href="#">Django</a>
+        <a href="#">Sketching</a>
+        <a href="#">Lifestyle</a>
+        <a href="#">History</a>
+        <a href="#">Product</a>
+    </nav>
+    <!-- <div class="container">
+        <div class="main-content">
+            <div class="article">
+                <img src="nazmu.jpg" alt="Article Image">
+                <h2>I Stopped Using Kubernetes. Our DevOps Team Is Happier Than Ever</h2>
+                <p>Why Letting Go of Kubernetes Worked for Us</p>
+                <p>Now 19, 2024 | 5.4K views | 156 comments</p>
+            </div>
+            <div class="article">
+                <img src="nazmul.jpg" alt="Article Image">
+                <h2>10 Python Libraries That Will Increase Your Development Speed</h2>
+                <p>Code Smarter Not Harder—Python Libraries That Save Developers Hundreds of Hours</p>
+                <p>Jan 23 | 549 views | 5 comments</p>
+            </div>
+            <div class="article">
+                <img src="https://via.placeholder.com/800x400" alt="Article Image">
+                <h2>Practice like a Stoic: 2, Focus on what is completely in your control</h2>
+                <p>More on mastering Epictetus’s fundamental rule of life</p>
+                <p>1d ago | 134 views</p>
+            </div>
+        </div> -->
+    </div> 
+    {% for post in data %}
+        <div class="article">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>{{ post.publish_date }}</p>
+        </div>
+    {% endfor %}
+    <footer>
+        <p>&copy; 2024 ARAFAT SHEIKH </p>
+    </footer>
+</body>
+</html>
