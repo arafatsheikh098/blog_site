@@ -20,8 +20,8 @@ def portfolio_view(request):
         "data":portfolio_data
     }
     return render(request,"portfolio.html",context)
-def single_post_view(request):
-    single_post_data=Post.objects.last()
+def single_post_view(request,id):
+    single_post_data=Post.objects.get(id=id)
     context={
         "post":single_post_data
     }
