@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from posts.models import Post
+from posts.models import Post,comment
 from django.views.generic import ListView
 # Create your views here.
 class postlist(ListView):
@@ -22,7 +22,9 @@ def portfolio_view(request):
     return render(request,"portfolio.html",context)
 def single_post_view(request,id):
     single_post_data=Post.objects.get(id=id)
+    single_post_comment=comment.objects.filter(post_id=id)
     context={
-        "post":single_post_data
+        "post":single_post_data,
+        "comment":single_post_comment
     }
     return render(request,"single_post.html",context)
