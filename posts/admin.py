@@ -9,5 +9,5 @@ admin.site.register(Post,PostAdmin)
 
 
 class CommnetAdmin (admin.ModelAdmin):
-    list_display=["id","text","post_id"]
+    list_display=["id","text","post_id","user"]
 admin.site.register(comment,CommnetAdmin)
