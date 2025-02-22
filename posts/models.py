@@ -8,4 +8,4 @@ class Post(models.Model):
 
 class comment(models.Model):
     text = models.CharField(max_length=100)
-     
+    post=models.ForeignKey(Post,on_delete=models.CASCADE)
