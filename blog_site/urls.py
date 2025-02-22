@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('post-list/',post_list_view),
     path('portfolio/',portfolio_view),
-    path('single-post/<int:id>',single_post_view),
+    path('single-post/<int:id>',single_post_view,name='one-page'),
 
 ]

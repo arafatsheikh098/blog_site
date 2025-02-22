@@ -78,7 +78,7 @@
         <h2>Recent Blog Posts</h2>
         {% for post in data %}
         <div class="article">
-            <a href="http://127.0.0.1:8000/single-post/{{post.id}}" >
+            <a href="{%url 'one-page' post.id%}" >
                 <h2>{{ post.title }}</h2>
             </a>
             <!-- <p>{{ post.content }}</p> -->
