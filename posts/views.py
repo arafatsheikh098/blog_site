@@ -22,7 +22,7 @@ def portfolio_view(request):
     return render(request,"portfolio.html",context)
 def single_post_view(request,id):
     single_post_data=Post.objects.get(id=id)
-    single_post_comment=comment.objects.filter(post_id=id)
+    single_post_comment=comment.objects.filter(post_id=id).select_related("user")
     context={
         "post":single_post_data,
         "comment":single_post_comment

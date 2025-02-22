@@ -89,14 +89,13 @@
         </div>
     </div> 
     <p>Comments</p>
-    {% for post in comment %}
-        <div class="article">
-            
-            
-            <p>{{ post.text }}</p>
-            
-        </div>
+    {% for text in comment %}
+    <div class="article">
+        <p><strong>User_name :</strong> {{ text.user }}</p>
+        <p>{{ text.text }}</p>
+    </div>
     {% endfor %}
+
    
     <footer>
         <p>&copy; 2024 ARAFAT SHEIKH </p>
