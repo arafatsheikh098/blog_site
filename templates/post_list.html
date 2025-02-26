@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Blog</title>
+{% extends 'base.html' %}
+ {% block content %}
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,8 +71,7 @@
             width: 100%;
         }
     </style>
-</head>
-<body>
+
     <header>
         <h1>Personal Blog</h1>
     </header>
@@ -126,5 +122,5 @@
     <footer>
         <p>&copy; 2024 ARAFAT SHEIKH </p>
     </footer>
-</body>
-</html>
+
+{% endblock %}
