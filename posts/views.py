@@ -33,7 +33,3 @@ def single_post_view(request,id):
         "comment":single_post_comment
     }
     return render(request,"single_post.html",context)
-def signup(request):
-    return render(request, 'signup.html')
-def login(request):
-    return render(request, 'login.html')
