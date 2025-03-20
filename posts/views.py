@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render,redirect
 from posts.models import Post,comment
 from django.views.generic import ListView
 # Create your views here.
@@ -33,3 +33,11 @@ def single_post_view(request,id):
         "comment":single_post_comment
     }
     return render(request,"single_post.html",context)
+
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == "POST":
+        text = request.POST.get("text")
+        if text:
+            comment.objects.create(post=post, user=request.user, text=text)
+    return redirect('one-page', id=post.id)  

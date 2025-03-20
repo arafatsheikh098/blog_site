@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
- {% block content %}
+{% block content %}
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            padding-bottom: 60px; /* Add padding to prevent footer overlap */
         }
         header {
             background-color: #333;
@@ -60,6 +61,34 @@
             margin-bottom: 20px;
             border-radius: 5px;
         }
+        .comment-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .comment-section h3 {
+            margin-top: 0;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+        .comment-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .comment-btn:hover {
+            background-color: #555;
+        }
         footer {
             background-color: #333;
             color: #fff;
@@ -75,23 +104,33 @@
         <h1>Personal Blog</h1>
     </header>
    
-    </div> 
-    
-        <div class="article">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.content }}</p>
-            <p>{{ post.publish_date }}</p>
-        </div>
-    </div> 
-    <p>Comments</p>
+    <div class="article">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <p>{{ post.publish_date }}</p>
+    </div>
+
+    <h3>Comments</h3>
     {% for text in comment %}
     <div class="article">
         <p><strong>User_name :</strong> {{ text.user }}</p>
         <p>{{ text.text }}</p>
     </div>
+    {% empty %}
+    <p>No comments yet. Be the first to comment!</p>
     {% endfor %}
 
-   
+    <!-- Add Comment Section -->
+    <div class="comment-section">
+        <h3>Add a Comment</h3>
+        <form action="{% url 'add_comment' post.id %}" method="POST">
+            {% csrf_token %}
+            <textarea name="text" placeholder="Write your comment here..." rows="4" required></textarea>
+            <br>
+            <button type="submit" class="comment-btn">Submit Comment</button>
+        </form>
+    </div>
+
     <footer>
         <p>&copy; 2024 ARAFAT SHEIKH </p>
     </footer>

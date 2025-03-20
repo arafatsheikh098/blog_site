@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Blog</title>
-    <link rel ="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+        /* Add the following CSS to position the logout link */
+        .logout-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #26a17d;
+            color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
+        .logout-link:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-    {% block content %}
+    <!-- Logout link at the top right -->
+    <a href="{% url 'logout' %}" class="logout-link">Logout</a>
     
-    {% endblock%}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

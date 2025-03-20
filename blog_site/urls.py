@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from posts.views import post_list_view,portfolio_view,single_post_view
+from posts.views import post_list_view,portfolio_view,single_post_view,add_comment
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post-list/',post_list_view),
+    path('post-list/',post_list_view,name='post-list'),
     path('portfolio/',portfolio_view),
     path('single-post/<int:id>',single_post_view,name='one-page'),
     path('users/',include("users.urls")),
+    path('post/<int:post_id>/add_comment/', add_comment, name='add_comment'),
     
 
 
